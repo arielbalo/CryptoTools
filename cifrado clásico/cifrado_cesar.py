@@ -6,7 +6,7 @@ __author__ = "arielbalo"
 
 import argparse
 
-#alf="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuwxyz0123456789"
+#alf = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuwxyz0123456789"
 alf = ""
 es = "abcdefghijklmnñopqrstuvwxyz"
 en = "abcdefghijklmnopqrstuvwxyz"
@@ -22,38 +22,38 @@ def parse_args():
 
 def cifrar():
     print ("Cifrar un mensaje")
-    texto=input("Tu texto: ").lower()
+    texto = input("Tu texto: ").lower()
     
-    k=int(input("Valor de desplazamiento: "))
-    cifrad=""
+    k = int(input("Valor de desplazamiento: "))
+    cifrad = ""
     
     for c in texto:
         if c in alf:
             cifrad += alf[(alf.index(c)+k)%(len(alf))]
         else:
-            cifrad+=c
+            cifrad += c
             
     print("Texto cifrado: ",cifrad)
 
 def decifrar():
-    print ("Aplicando fuerza bruta")
-    texto=input("Mensaje: ").lower()
+    print("Aplicando fuerza bruta")
+    texto = input("Mensaje: ").lower()
 
     for key in range(len(alf)):
-        traducido=''
+        traducido = ''
 
         for elem in texto:
             if elem in alf:
-                elemIndex=alf.find(elem)
-                tradIndex=elemIndex-key
+                elemIndex = alf.find(elem)
+                tradIndex = elemIndex - key
 
-                if tradIndex<0:
-                    tradIndex=tradIndex+len(alf)
-                traducido=traducido+alf[tradIndex]
+                if tradIndex < 0:
+                    tradIndex = tradIndex + len(alf)
+                traducido = traducido + alf[tradIndex]
             else:
-                traducido=traducido+elem
+                traducido = traducido + elem
 
-            if len(traducido)==len(texto):
+            if len(traducido) == len(texto):
                 print('key #{}: {}'.format(key, traducido))
 
 def main(args):
@@ -70,7 +70,7 @@ def main(args):
     elif args.decipher:
         decifrar()
     else:
-        print ("\nRevise el panel de ayuda [-h]\n")
+        print("\nRevise el panel de ayuda [-h]\n")
 
 if __name__ == '__main__':
     args = parse_args()
