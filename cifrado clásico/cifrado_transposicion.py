@@ -30,7 +30,7 @@ def encrypt(key, message):
 def decrypt(key, message):
     print('Decifrando el mensaje...')
     numCols = math.ceil(len(message) / key)
-    numRows = key
+    numRows = key    
     numShadeBoxes = (numCols * numRows) - len(message)
     plainText = [''] * numCols
     col = row = 0
